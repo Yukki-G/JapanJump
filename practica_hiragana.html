@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nihon</title>
+    <link rel="icon" type="icon" href="icons/Glowing Angel Halo Wings Emblem.png">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Estrellas -->
+    <div class="cielo" id="cielo" aria-hidden="true"></div>
+
+    <!-- Marco lateral -->
+    <div class="marco marco-izq"></div>
+    <div class="marco marco-der"></div>
+
+    <nav>
+        <div class="contain_listnav">
+            <a id="nihon_main" href="index.html"><img id="halo_p" src="images/halo.png" alt="Halo de la pagina"> _NIHON</a>
+            <ul class="listnav" id="menu">
+                <li class="dropdown">
+                    <button type="button" class="listnav_title" aria-expanded="false">_Hiragana</button>
+                    <ul class="submenu">
+                        <li><a href="hiragana_tabla.html">Tabla</a></li>
+                        <li><a href="practica_hiragana.html">Practica</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <button type="button" class="listnav_title" aria-expanded="false">_Katakana</button>
+                    <ul class="submenu">
+                        <li><a href="katakana_tabla.html">Tabla</a></li>
+                        <li><a href="practica_katakana.html">Practica</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <button type="button" class="listnav_title" aria-expanded="false">_Kanji</button>
+                    <ul class="submenu">
+                        <li><a href="kanji_tabla.html">Tabla</a></li>
+                        <li><a href="practica_kanji.html">Practica</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <button type="button" class="listnav_menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    aria-hidden="true">
+                    <line x1="3" y1="6"  x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <h2 class="intersecciones">PRACTICA HIRAGANA</h2>
+    <p id="tabla_info">Escribe la lectura de cada caracter. ¡Rie te acompaña!</p>
+    <h4>﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌⋆୨♡୧⋆﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌</h4>
+
+    <main>
+        <!-- data-alfabeto="hiragana" | "katakana" (el JS usa este valor) -->
+        <section class="practica" data-alfabeto="hiragana" aria-label="Zona de práctica">
+
+            <!-- Contadores -->
+            <div class="practica_marcador">
+                <div class="practica_dato">
+                    <span>RACHA</span>
+                    <strong id="p_racha">0</strong>
+                </div>
+                <div class="practica_dato">
+                    <span>BUENAS</span>
+                    <strong id="p_buenas">0</strong>
+                </div>
+                <div class="practica_dato">
+                    <span>MALAS</span>
+                    <strong id="p_malas">0</strong>
+                </div>
+            </div>
+
+            <!-- Personaje (cambia entre neutral / happy / angry desde el JS) -->
+            <div class="practica_personaje">
+                <img id="p_personaje" src="sprits/Rie_neutral.png" alt="Rie, tu companera de practica">
+            </div>
+
+            <!-- Tarjeta de pregunta -->
+            <div class="practica_tarjeta" id="p_tarjeta">
+                <p class="practica_etiqueta" id="p_etiqueta">¿Cómo se lee?</p>
+                <p class="practica_simbolo" id="p_simbolo" lang="ja">あ</p>
+
+                <p class="practica_feedback" id="p_feedback" role="status" aria-live="polite"></p>
+
+                <!-- Modo escribir (kana → romaji) -->
+                <form class="practica_form" id="p_form" autocomplete="off">
+                    <input class="practica_input" id="p_input" type="text"
+                        placeholder="Escribe el romaji..."
+                        aria-label="Escribe el romaji"
+                        autocapitalize="none" autocorrect="off" spellcheck="false">
+                    <button class="practica_btn" id="p_comprobar" type="submit">Comprobar</button>
+                </form>
+
+                <!-- Modo elegir (romaji → kana) -->
+                <div class="practica_opciones" id="p_opciones" hidden></div>
+
+                <!-- Botones de accion -->
+                <div class="practica_acciones">
+                    <button class="practica_btn" id="p_nolose" type="button">No lo sé</button>
+                    <button class="practica_btn" id="p_siguiente" type="button" hidden>Siguiente ›</button>
+                    <button class="practica_btn" id="p_modo" type="button">Hiragana → Romaji</button>
+                </div>
+            </div>
+
+            <!-- Que grupos practicar -->
+            <fieldset class="practica_grupos">
+                <legend>Practicar:</legend>
+                <label class="practica_chip">
+                    <input type="checkbox" value="gojuon" checked>
+                    <span>Gojūon</span>
+                </label>
+                <label class="practica_chip">
+                    <input type="checkbox" value="dakuten">
+                    <span>Dakuten</span>
+                </label>
+                <label class="practica_chip">
+                    <input type="checkbox" value="yoon">
+                    <span>Yoon</span>
+                </label>
+            </fieldset>
+        </section>
+    </main>
+
+    <footer>
+        <span class="copyright">© 2023 Cherry Nippon Clan. Todos los derechos reservados.</span>
+        <div class="contain_footer">
+            <div class="footer_img">
+                <img src="images/mi_pfp.jpg" alt="Mi pfp">
+                <button><a href="https://yukki-g.github.io/MiBio/">Mis redes</a></button>
+            </div>
+            <div class="footer_links">
+                <a href="https://github.com/Yukki-G"> Mi github</a>
+                <a href=""> Mi discord</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="practica.js"></script>
+</body>
+</html>

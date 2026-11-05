@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="es"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nihon</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Estrellas -->
+    <div class="cielo" id="cielo" aria-hidden="true"></div>
+
+    <!-- Marco lateral -->
+    <div class="marco marco-izq"></div>
+    <div class="marco marco-der"></div>
+
+    <nav>
+        <div class="contain_listnav">
+            <a id="nihon_main" href="index.html"><img id="halo_p" src="images/halo.png" alt="Halo de la pagina"> _NIHON</a>
+            <ul class="listnav" id="menu">
+                <li class="dropdown">
+                    <button type="button" class="listnav_title" aria-expanded="false">_Hiragana</button>
+                    <ul class="submenu">
+                        <li><a href="hiragana_tabla.html">Tabla</a></li>
+                        <li><a href="practica_hiragana.html">Practica</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <button type="button" class="listnav_title" aria-expanded="false">_Katakana</button>
+                    <ul class="submenu">
+                        <li><a href="katakana_tabla.html">Tabla</a></li>
+                        <li><a href="practica_katakana.html">Practica</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <button type="button" class="listnav_title" aria-expanded="false">_Kanji</button>
+                    <ul class="submenu">
+                        <li><a href="kanji_tabla.html">Tabla</a></li>
+                        <li><a href="practica_kanji.html">Practica</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <button type="button" class="listnav_menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    aria-hidden="true">
+                    <line x1="3" y1="6"  x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+        </div>
+    </nav>  
+
+    <div class="hiragana_tabla_main">
+        <h2 class="intersecciones">HIRAGANA</h2>
+    </div>
+
+    <p id="tabla_info">El hiragana se usa para palabras originales de japon</p>
+    <h4>﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌⋆୨♡୧⋆﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌</h4> 
+    <div class="contain_info_tarj">
+        <div class="info_tarj">
+            <p>46 caracteres comunes</p>
+        </div>
+        <div class="info_tarj">
+            <p>25 sonidos adicionales</p>
+        </div>
+        <div class="info_tarj">
+            <p>33 combinaciones</p>
+        </div>
+    </div>
+
+    <h4>﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌⋆୨♡୧⋆﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌</h4> 
+
+    <div class="tabla_header"> 
+        <h5 id="tittle_table1">Gojūon</h5>
+        <h5>五十音</h5>
+    </div>
+    <!-- Caracteres principales -->
+    <section class="contain_tabla_main">
+        <div class="tabla_caracteres"> <!-- Contenedor de toda la tabla -->
+            <div class="tabla_grid">  <!-- Grid de celdas -->
+                <!-- Celda de a -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de あ"
+                                aria-expanded="false">
+                            <span class="kana">あ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">a</span>
+                            <span class="romaji">あ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de あ"
+                                aria-expanded="false">
+                            <span class="kana">い</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">i</span>
+                            <span class="romaji">い</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de あ"
+                                aria-expanded="false">
+                            <span class="kana">う</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">u</span>
+                            <span class="romaji">う</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de あ"
+                                aria-expanded="false">
+                            <span class="kana">え</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">e</span>
+                            <span class="romaji">え</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de あ"
+                                aria-expanded="false">
+                            <span class="kana">お</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">o</span>
+                            <span class="romaji">お</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda ka -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de か"
+                                aria-expanded="false">
+                            <span class="kana">か</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ka</span>
+                            <span class="romaji">か</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de き"
+                                aria-expanded="false">
+                            <span class="kana">き</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ki</span>
+                            <span class="romaji">き</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de く"
+                                aria-expanded="false">
+                            <span class="kana">く</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ku</span>
+                            <span class="romaji">く</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de け"
+                                aria-expanded="false">
+                            <span class="kana">け</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ke</span>
+                            <span class="romaji">け</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de こ"
+                                aria-expanded="false">
+                            <span class="kana">こ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ko</span>
+                            <span class="romaji">こ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda sa -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de さ"
+                                aria-expanded="false">
+                            <span class="kana">さ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">sa</span>
+                            <span class="romaji">さ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de し"
+                                aria-expanded="false">
+                            <span class="kana">し</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">shi</span>
+                            <span class="romaji">し</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de す"
+                                aria-expanded="false">
+                            <span class="kana">す</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">su</span>
+                            <span class="romaji">す</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de せ"
+                                aria-expanded="false">
+                            <span class="kana">せ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">se</span>
+                            <span class="romaji">せ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de そ"
+                                aria-expanded="false">
+                            <span class="kana">そ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">so</span>
+                            <span class="romaji">そ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda ta -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de た"
+                                aria-expanded="false">
+                            <span class="kana">た</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ta</span>
+                            <span class="romaji">た</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ち"
+                                aria-expanded="false">
+                            <span class="kana">ち</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">chi</span>
+                            <span class="romaji">ち</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de つ"
+                                aria-expanded="false">
+                            <span class="kana">つ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">tsu</span>
+                            <span class="romaji">つ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de て"
+                                aria-expanded="false">
+                            <span class="kana">て</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">te</span>
+                            <span class="romaji">て</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de と"
+                                aria-expanded="false">
+                            <span class="kana">と</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">to</span>
+                            <span class="romaji">と</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda na -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de な"
+                                aria-expanded="false">
+                            <span class="kana">な</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">na</span>
+                            <span class="romaji">な</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de に"
+                                aria-expanded="false">
+                            <span class="kana">に</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ni</span>
+                            <span class="romaji">に</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぬ"
+                                aria-expanded="false">
+                            <span class="kana">ぬ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">nu</span>
+                            <span class="romaji">ぬ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ね"
+                                aria-expanded="false">
+                            <span class="kana">ね</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ne</span>
+                            <span class="romaji">ね</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de の"
+                                aria-expanded="false">
+                            <span class="kana">の</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">no</span>
+                            <span class="romaji">の</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda ha -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de は"
+                                aria-expanded="false">
+                            <span class="kana">は</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ha</span>
+                            <span class="romaji">は</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ひ"
+                                aria-expanded="false">
+                            <span class="kana">ひ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">hi</span>
+                            <span class="romaji">ひ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ふ"
+                                aria-expanded="false">
+                            <span class="kana">ふ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">fu</span>
+                            <span class="romaji">ふ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de へ"
+                                aria-expanded="false">
+                            <span class="kana">へ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">he</span>
+                            <span class="romaji">へ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ほ"
+                                aria-expanded="false">
+                            <span class="kana">ほ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ho</span>
+                            <span class="romaji">ほ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda ma -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ま"
+                                aria-expanded="false">
+                            <span class="kana">ま</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ma</span>
+                            <span class="romaji">ま</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de み"
+                                aria-expanded="false">
+                            <span class="kana">み</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">mi</span>
+                            <span class="romaji">み</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de む"
+                                aria-expanded="false">
+                            <span class="kana">む</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">mu</span>
+                            <span class="romaji">む</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de め"
+                                aria-expanded="false">
+                            <span class="kana">め</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">me</span>
+                            <span class="romaji">め</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de も"
+                                aria-expanded="false">
+                            <span class="kana">も</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">mo</span>
+                            <span class="romaji">も</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda ra -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ら"
+                                aria-expanded="false">
+                            <span class="kana">ら</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ra</span>
+                            <span class="romaji">ら</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de り"
+                                aria-expanded="false">
+                            <span class="kana">り</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ri</span>
+                            <span class="romaji">り</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de る"
+                                aria-expanded="false">
+                            <span class="kana">る</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ru</span>
+                            <span class="romaji">る</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de れ"
+                                aria-expanded="false">
+                            <span class="kana">れ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">re</span>
+                            <span class="romaji">れ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ろ"
+                                aria-expanded="false">
+                            <span class="kana">ろ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ro</span>
+                            <span class="romaji">ろ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda ya -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de や"
+                                aria-expanded="false">
+                            <span class="kana">や</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ya</span>
+                            <span class="romaji">や</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell cell-empty">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ゆ"
+                                aria-expanded="false">
+                            <span class="kana">ゆ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">yu</span>
+                            <span class="romaji">ゆ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell cell-empty">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de よ"
+                                aria-expanded="false">
+                            <span class="kana">よ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">yo</span>
+                            <span class="romaji">よ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda wa -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de わ"
+                                aria-expanded="false">
+                            <span class="kana">わ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">wa</span>
+                            <span class="romaji">わ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de を"
+                                aria-expanded="false">
+                            <span class="kana">を</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">wo</span>
+                            <span class="romaji">を</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda n -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ん"
+                                aria-expanded="false">
+                            <span class="kana">ん</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">n</span>
+                            <span class="romaji">ん</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- separador =====================================================-->
+
+    <h4>﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌⋆୨♡୧⋆﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌</h4> 
+
+    <!-- Sonidos adicionales (Dakuten)-->
+    <div class="tabla_header"> 
+        <h5 id="tittle_table2">Dakuten</h5>
+        <h5>五十音</h5>
+    </div>
+
+    <section class="contain_tabla_main">
+        <div class="tabla_caracteres">
+            <div class="tabla_grid">
+                <!-- Celda de ga -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de が"
+                                aria-expanded="false">
+                            <span class="kana">が</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ga</span>
+                            <span class="romaji">が</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぎ"
+                                aria-expanded="false">
+                            <span class="kana">ぎ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">gi</span>
+                            <span class="romaji">ぎ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぐ"
+                                aria-expanded="false">
+                            <span class="kana">ぐ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">gu</span>
+                            <span class="romaji">ぐ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de げ"
+                                aria-expanded="false">
+                            <span class="kana">げ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ge</span>
+                            <span class="romaji">げ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ご"
+                                aria-expanded="false">
+                            <span class="kana">ご</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">go</span>
+                            <span class="romaji">ご</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de za -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ざ"
+                                aria-expanded="false">
+                            <span class="kana">ざ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">za</span>
+                            <span class="romaji">ざ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de じ"
+                                aria-expanded="false">
+                            <span class="kana">じ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ji</span>
+                            <span class="romaji">じ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ず"
+                                aria-expanded="false">
+                            <span class="kana">ず</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">zu</span>
+                            <span class="romaji">ず</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぜ"
+                                aria-expanded="false">
+                            <span class="kana">ぜ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ze</span>
+                            <span class="romaji">ぜ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぞ"
+                                aria-expanded="false">
+                            <span class="kana">ぞ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">zo</span>
+                            <span class="romaji">ぞ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de da -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de だ"
+                                aria-expanded="false">
+                            <span class="kana">だ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">da</span>
+                            <span class="romaji">だ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぢ"
+                                aria-expanded="false">
+                            <span class="kana">ぢ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ji</span>
+                            <span class="romaji">ぢ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de づ"
+                                aria-expanded="false">
+                            <span class="kana">づ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">zu</span>
+                            <span class="romaji">づ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de で"
+                                aria-expanded="false">
+                            <span class="kana">で</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">de</span>
+                            <span class="romaji">で</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ど"
+                                aria-expanded="false">
+                            <span class="kana">ど</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">do</span>
+                            <span class="romaji">ど</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de ba -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ば"
+                                aria-expanded="false">
+                            <span class="kana">ば</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ba</span>
+                            <span class="romaji">ば</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de び"
+                                aria-expanded="false">
+                            <span class="kana">び</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">bi</span>
+                            <span class="romaji">び</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぶ"
+                                aria-expanded="false">
+                            <span class="kana">ぶ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">bu</span>
+                            <span class="romaji">ぶ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de べ"
+                                aria-expanded="false">
+                            <span class="kana">べ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">be</span>
+                            <span class="romaji">べ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぼ"
+                                aria-expanded="false">
+                            <span class="kana">ぼ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">bo</span>
+                            <span class="romaji">ぼ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de pa -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぱ"
+                                aria-expanded="false">
+                            <span class="kana">ぱ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">pa</span>
+                            <span class="romaji">ぱ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぴ"
+                                aria-expanded="false">
+                            <span class="kana">ぴ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">pi</span>
+                            <span class="romaji">ぴ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぷ"
+                                aria-expanded="false">
+                            <span class="kana">ぷ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">pu</span>
+                            <span class="romaji">ぷ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぺ"
+                                aria-expanded="false">
+                            <span class="kana">ぺ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">pe</span>
+                            <span class="romaji">ぺ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぽ"
+                                aria-expanded="false">
+                            <span class="kana">ぽ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">po</span>
+                            <span class="romaji">ぽ</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+<!-- separador =====================================================-->
+
+    <h4>﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌⋆୨♡୧⋆﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌</h4> 
+
+    <!-- Combinaciones (Yoon)-->
+    <div class="tabla_header"> 
+        <h5 id="tittle_table3">Yoon</h5>
+        <h5>五十音</h5>
+    </div>
+
+    <section class="contain_tabla_main">
+        <div class="tabla_caracteres">
+            <div class="tabla_grid">
+                <!-- Celda de ky -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de きゃ"
+                                aria-expanded="false">
+                            <span class="kana">きゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">kya</span>
+                            <span class="romaji">きゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de きゅ"
+                                aria-expanded="false">
+                            <span class="kana">きゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">kyu</span>
+                            <span class="romaji">きゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de きょ"
+                                aria-expanded="false">
+                            <span class="kana">きょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">kyo</span>
+                            <span class="romaji">きょ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de sh -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de しゃ"
+                                aria-expanded="false">
+                            <span class="kana">しゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">sha</span>
+                            <span class="romaji">しゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de しゅ"
+                                aria-expanded="false">
+                            <span class="kana">しゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">shu</span>
+                            <span class="romaji">しゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de しょ"
+                                aria-expanded="false">
+                            <span class="kana">しょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">sho</span>
+                            <span class="romaji">しょ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de ch -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ちゃ"
+                                aria-expanded="false">
+                            <span class="kana">ちゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">cha</span>
+                            <span class="romaji">ちゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ちゅ"
+                                aria-expanded="false">
+                            <span class="kana">ちゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">chu</span>
+                            <span class="romaji">ちゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ちょ"
+                                aria-expanded="false">
+                            <span class="kana">ちょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">cho</span>
+                            <span class="romaji">ちょ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de ny -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de にゃ"
+                                aria-expanded="false">
+                            <span class="kana">にゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">nya</span>
+                            <span class="romaji">にゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de にゅ"
+                                aria-expanded="false">
+                            <span class="kana">にゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">nyu</span>
+                            <span class="romaji">にゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de にょ"
+                                aria-expanded="false">
+                            <span class="kana">にょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">nyo</span>
+                            <span class="romaji">にょ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de hy -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ひゃ"
+                                aria-expanded="false">
+                            <span class="kana">ひゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">hya</span>
+                            <span class="romaji">ひゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ひゅ"
+                                aria-expanded="false">
+                            <span class="kana">ひゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">hyu</span>
+                            <span class="romaji">ひゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ひょ"
+                                aria-expanded="false">
+                            <span class="kana">ひょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">hyo</span>
+                            <span class="romaji">ひょ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de my -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de みゃ"
+                                aria-expanded="false">
+                            <span class="kana">みゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">mya</span>
+                            <span class="romaji">みゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de みゅ"
+                                aria-expanded="false">
+                            <span class="kana">みゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">myu</span>
+                            <span class="romaji">みゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de みょ"
+                                aria-expanded="false">
+                            <span class="kana">みょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">myo</span>
+                            <span class="romaji">みょ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de ry -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de りゃ"
+                                aria-expanded="false">
+                            <span class="kana">りゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">rya</span>
+                            <span class="romaji">りゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de りゅ"
+                                aria-expanded="false">
+                            <span class="kana">りゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ryu</span>
+                            <span class="romaji">りゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de りょ"
+                                aria-expanded="false">
+                            <span class="kana">りょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ryo</span>
+                            <span class="romaji">りょ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de gy -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぎゃ"
+                                aria-expanded="false">
+                            <span class="kana">ぎゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">gya</span>
+                            <span class="romaji">ぎゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぎゅ"
+                                aria-expanded="false">
+                            <span class="kana">ぎゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">gyu</span>
+                            <span class="romaji">ぎゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぎょ"
+                                aria-expanded="false">
+                            <span class="kana">ぎょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">gyo</span>
+                            <span class="romaji">ぎょ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de j -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de じゃ"
+                                aria-expanded="false">
+                            <span class="kana">じゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ja</span>
+                            <span class="romaji">じゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de じゅ"
+                                aria-expanded="false">
+                            <span class="kana">じゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">ju</span>
+                            <span class="romaji">じゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de じょ"
+                                aria-expanded="false">
+                            <span class="kana">じょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">jo</span>
+                            <span class="romaji">じょ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de by -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de びゃ"
+                                aria-expanded="false">
+                            <span class="kana">びゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">bya</span>
+                            <span class="romaji">びゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de びゅ"
+                                aria-expanded="false">
+                            <span class="kana">びゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">byu</span>
+                            <span class="romaji">びゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de びょ"
+                                aria-expanded="false">
+                            <span class="kana">びょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">byo</span>
+                            <span class="romaji">びょ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celda de py -->
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぴゃ"
+                                aria-expanded="false">
+                            <span class="kana">ぴゃ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">pya</span>
+                            <span class="romaji">ぴゃ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぴゅ"
+                                aria-expanded="false">
+                            <span class="kana">ぴゅ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">pyu</span>
+                            <span class="romaji">ぴゅ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell">
+                </div>
+
+                <div class="cell">
+                    <div class="cell-inner">
+                        <button class="cell-face cell-front" type="button"
+                                aria-label="Mostrar la lectura de ぴょ"
+                                aria-expanded="false">
+                            <span class="kana">ぴょ</span>
+                            <span class="cell-hint">TAP✧</span>
+                        </button>
+                        <div class="cell-face cell-back" aria-hidden="true">
+                            <span class="kana">pyo</span>
+                            <span class="romaji">ぴょ</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <h4>﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌⋆୨♡୧⋆﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌</h4> 
+
+    <footer>
+        <span class="copyright">© 2023 Cherry Nippon Clan. Todos los derechos reservados.</span>
+        <div class="contain_footer">
+            <div class="footer_img">
+                <img src="images/mi_pfp.jpg" alt="Mi pfp">
+                <button><a href="https://yukki-g.github.io/MiBio/">Mis redes</a></button>
+            </div>
+            <div class="footer_links">
+                <a href="https://github.com/Yukki-G"> Mi github</a>
+                <a href=""> Mi discord</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

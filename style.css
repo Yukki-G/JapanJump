@@ -1,0 +1,1114 @@
+/* Declaracion de variables */
+:root {
+  --color-text: #fff;
+  --color-line: #fff;
+  --ancho-marco: clamp(24px, 6vw, 80px);
+}
+
+/* Creacion de animaciones */
+@keyframes titilar {
+  0%, 100% { opacity: 1;    transform: translateX(-50%) scale(1); }
+  50%      { opacity: 0.35; transform: translateX(-50%) scale(0.85); }
+}
+
+@keyframes balanceo {
+  from { transform: rotate(-2deg); }
+  to   { transform: rotate(2deg); }
+}
+
+@keyframes viaje {
+  0%   { opacity: 0; transform: translateX(0); }
+  10%  { opacity: 1; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; transform: translateX(var(--dist)); }
+}
+
+@keyframes flotar {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+/* Zona principal */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000000;
+  font-family: "Saira", sans-serif;
+}
+
+main {
+  padding-inline: calc(var(--ancho-marco) + 12px);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* Estrellas colgantes ======================================================================================== */
+.cielo {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cielo svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Hilo punteado */
+.hilo {
+  position: absolute;
+  width: 0;
+  transform-origin: top center;
+  animation: balanceo var(--dur-balanceo) ease-in-out infinite alternate;
+}
+
+.hilo::before {
+  content: "";
+  position: absolute;
+  left: -0.5px;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.85) 0 2px,
+    transparent 2px 4px
+  );
+}
+
+/* Contenedor de la estrella (lleva el brillo y la animación) */
+.estrella {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: var(--tam);
+  height: var(--tam);
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+  animation: titilar var(--dur-titilar) ease-in-out infinite;
+  animation-delay: var(--retraso);
+}
+
+/* La forma de estrella */
+.estrella i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+}
+
+
+/* Respeta a quien prefiere sin animaciones */
+@media (prefers-reduced-motion: reduce) {
+  .hilo, .estrella { animation: none; }
+}
+
+
+/* Estrellas fugases =======================================================================================*/
+.fugaz {
+  position: absolute;
+  transform-origin: left center;
+  transform: rotate(var(--ang));      /* inclinación de la trayectoria */
+  pointer-events: none;
+}
+
+.fugaz-mov {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: viaje var(--dur) linear forwards;
+}
+
+/* El haz de luz que queda detrás */
+.fugaz-cola {
+  width: var(--cola);
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.9));
+  filter: drop-shadow(0 0 4px #fff);
+}
+
+/* El carácter ✧ al frente */
+.fugaz-cabeza {
+  margin-left: -0.35em;               /* para que la cola salga del centro de la estrella */
+  font-size: var(--tam);
+  line-height: 1;
+  color: #fff;
+  font-family: "Segoe UI Symbol", "Noto Sans Symbols 2", "Apple Symbols", sans-serif;
+  text-shadow: 0 0 6px #fff, 0 0 14px rgba(255, 255, 255, 0.8);
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .fugaz { display: none; }
+}
+
+
+/* Marco de los border =====================================================================================*/
+.marco {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;               
+  width: var(--ancho-marco);
+  background-image: url("images/marco.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;     
+  background-position: top center;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.marco-izq {
+  left: 0;
+  transform: scaleX(-1);         
+}
+
+.marco-der {
+  right: 0;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --ancho-marco: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .marco {
+    display: none;
+  }
+  main {
+    padding-inline: 12px;
+  }
+}
+
+/* ============================================================ */
+/* === Barra de navegacion ==================================== */ 
+/* ============================================================ */
+
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.contain_listnav {
+  position: relative;          
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  padding: 0.5rem 1rem 1rem 1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+#nihon_main {
+  font-size: 2.5rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+#halo_p {
+  width: clamp(5rem, 10vw, 10rem);
+  object-fit: cover;  
+  animation: flotar 1s ease-in-out infinite alternate;
+}
+
+/* ---------- Lista principal ---------- */
+
+.listnav {
+  display: flex;
+  gap: 6rem;
+  list-style: none;
+}
+
+.dropdown {
+  position: relative;       
+  padding: 0.3rem;
+}
+
+.listnav_title {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.6rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+/* ---------- Submenú (Tabla / Practica) ---------- */
+
+.submenu {
+  list-style: none;
+  position: absolute;
+  top: 100%;                   
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 9rem;
+  padding: 0.5rem;
+  background: transparent;
+  z-index: 10;
+
+  /* oculto por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.submenu li {
+  padding: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.submenu a {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.2s;
+}
+
+.submenu a:hover,
+.submenu a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Mostrar con mouse (solo dispositivos con hover real) o con teclado */
+@media (hover: hover) {
+  .dropdown:hover > .submenu {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.dropdown:focus-within > .submenu {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------- Botón hamburguesa ---------- */
+
+.listnav_menu {
+  display: none;              
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.listnav_menu:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.listnav_menu:focus-visible,
+.listnav_title:focus-visible,
+.submenu a:focus-visible {
+  outline: 2px solid #4c8bf5;
+  outline-offset: 2px;
+}
+
+/* ---------- Tablet pequeña / celular ---------- */
+
+@media (max-width: 768px) {
+  .contain_listnav {
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  #nihon_main {
+    font-size: 2rem;
+  }
+
+  .listnav_menu {
+    display: inline-flex;
+  }
+
+  /* El menú pasa a ser un panel que baja debajo de la barra */
+  .listnav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: -1px;
+    right: -1px;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1rem;
+    background: #000;
+    border: 1px solid #fff;
+    z-index: 20;
+  }
+
+  .listnav.open {
+    display: flex;
+  }
+
+  .dropdown {
+    padding: 0.5rem 0;
+  }
+
+  .listnav_title {
+    width: 100%;
+    text-align: left;
+    font-size: 1.4rem;
+  }
+
+  .submenu {
+    display: none;
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    border: none;
+    padding: 0.3rem 0 0 1rem;
+  }
+
+  .dropdown.open > .submenu {
+    display: block;
+  }
+}
+
+
+/* ============================================================ */
+/* === Index-Main ============================================= */ 
+/* ============================================================ */
+
+.bienv {
+  width: 90%;
+  height: auto;
+  font-size: clamp(1.2rem, 5vw, 2.5rem);
+  color: var(--color-text);
+  text-align: center;
+  margin: auto;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+/* Margen de decoracion */
+
+h4 {
+  color: var(--color-text);
+  font-size: 1.3rem;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.contain_tarjetas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tarjeta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  padding: 3rem;
+
+  img {
+    width: clamp(20rem, 10vw, 55rem);
+    height: clamp(20rem, 10vw, 55rem);
+    border-radius: 10px;
+  }
+
+  p {
+    width: clamp(40rem, 10vw, 55rem);
+    height: clamp(20rem, 10vw, 55rem);
+    color: var(--color-text);
+    font-size: clamp(0.7rem, 4vw, 1.3rem);
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+#tarjeta_reverse {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+    .tarjeta,
+    #tarjeta_reverse {
+        flex-direction: column;
+        
+    }
+
+    .tarjeta img {
+        width: min(100%, 300px);
+    }
+
+    .tarjeta p {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    h4 {
+      font-size: 0.9rem;
+    }
+}
+
+
+/* ============================================================ */
+/* === Index-footer ============================================= */ 
+/* ============================================================ */
+
+footer {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;                
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);   
+  padding-left: 6rem;   
+  padding-right: 6rem;    
+  border-top: 1px solid var(--color-line);
+
+  .copyright {
+    color: var(--color-text);
+    font-size: clamp(0.8rem, 0.6rem + 0.8vw, 1.1rem);
+  }
+}
+
+.contain_footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer_img {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    width: clamp(2.5rem, 2rem + 3vw, 5rem);
+    aspect-ratio: 1;               
+    object-fit: cover;  
+    border-radius: 10px;
+  }
+
+  button {
+    color: var(--color-text);
+    background: none;
+    border: 1px solid var(--color-line);
+    cursor: pointer;
+    padding: 0.5em 1em;            
+    font-size: clamp(0.8rem, 0.6rem + 0.8vw, 1.1rem);
+    transition: all 0.3s ease;    
+
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+    }
+  }
+
+  button:hover {
+    background: #fff;
+    color: #000;
+  }
+}
+
+.footer_links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  a {
+    color: #7e7e7e;
+    text-decoration: none;
+    font-size: clamp(0.8rem, 0.6rem + 0.8vw, 1.1rem);
+  }
+
+  a:hover {
+    color: var(--color-text);
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contain_footer {
+    flex-direction: column;
+  }
+
+  .footer_links {
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================ */
+/* === Hiragana_tabla ========================================= */ 
+/* ============================================================ */
+
+.intersecciones {
+  color: var(--color-text);
+  font-size: clamp(1.2rem, 5vw, 3rem);
+  text-align: center;
+  padding: 1rem;
+}
+
+#tabla_info {
+  color: var(--color-text);
+  font-size: clamp(0.8rem, 3.4vw, 1.3rem);
+  text-align: center;
+}
+
+.contain_info_tarj {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.info_tarj {
+  border: 1px solid var(--color-line);
+  width: clamp(12rem, 15vw, 20rem);
+  height: auto;
+  
+  p {
+    color: var(--color-text);
+    font-size: clamp(0.5rem, 2.7vw, 1.2rem);
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contain_info_tarj {
+    flex-direction: column;
+  }
+
+  .info_tarj {
+    width: 80%;
+    
+    p {
+      padding: 0.6rem;
+    }
+  }
+}
+
+/* ============================================================ */
+/* === Tabla de hiragana ====================================== */ 
+/* ============================================================ */
+
+.tabla_header {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: min(90%, 800px);
+  border-top: 1px solid var(--color-line);
+  margin-top: 3rem;
+
+  h5 {
+    color: var(--color-text);
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 1rem;
+  }
+}
+
+#tittle_table1 {
+  font-size: 2rem;
+  border-bottom: 3px solid var(--color-line);
+}
+#tittle_table2 {
+  font-size: 2rem;
+  border-bottom: 3px solid var(--color-line);
+}
+#tittle_table3 {
+  font-size: 2rem;
+  border-bottom: 3px solid var(--color-line);
+}
+
+.contain_tabla_main {
+  width: min(90%, 650px);
+  margin-inline: auto;
+}
+
+.tabla_caracteres {
+  width: 100%;
+  padding: 1rem;
+  margin-inline: auto;
+}
+
+.tabla_grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+
+.cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    perspective: 800px;
+    cursor: pointer;
+}
+
+.cell-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 450ms ease;
+}
+
+/* Animacion de rotacion */
+.cell.is-flipped .cell-inner {
+    transform: rotateY(180deg);
+}
+
+.cell-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    border: 1px solid var(--color-line);
+    color: var(--color-text);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* Cara frontal */
+.cell-front {
+    cursor: pointer;
+    font: inherit;
+}
+
+.cell-front:hover {
+  transform: scale(1.10);
+  transition: all 0.3s ease, border 0.3s ease;
+}
+
+.cell-back {
+    transform: rotateY(180deg);
+    background: #000000;
+    border-color: var(--color-line);
+}
+
+.kana {
+    font-size: clamp(1.4rem, 4vw, 2.5rem);
+    line-height: 1.2;
+}
+
+.romaji {
+    color: var(--color-text);
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+}
+
+.cell-hint {
+    color: var(--color-text);
+    font-size: 0.55rem;
+    letter-spacing: 0.04em;
+}
+
+/* Accesibilidad */
+.cell-front:focus-visible {
+    outline: 2px solid #a8d5ff;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cell-inner {
+        transition: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================ */
+/* === Practica (hiragana / katakana) ========================= */
+/* ============================================================ */
+/* Pega todo esto al final de style.css */
+
+:root {
+  --color-acierto: #ff8fc7;
+  --color-error: #ff4d6d;
+}
+
+@keyframes sacudir {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-8px); }
+  40%      { transform: translateX(8px); }
+  60%      { transform: translateX(-5px); }
+  80%      { transform: translateX(5px); }
+}
+
+/* Para que el atributo hidden funcione aunque el elemento tenga display */
+.practica [hidden] {
+  display: none !important;
+}
+
+.practica {
+  width: min(100%, 640px);
+  margin: 1.5rem auto 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ---------- Contadores ---------- */
+
+.practica_marcador {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+.practica_dato {
+  border: 1px solid var(--color-line);
+  background: rgba(0, 0, 0, 0.75);
+  padding: 0.8rem;
+  text-align: center;
+  color: var(--color-text);
+
+  span {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  strong {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+}
+
+/* ---------- Personaje ---------- */
+/* Quita el borde punteado cuando ya tengas tu sprite puesto */
+
+.practica_personaje {
+  width: clamp(11rem, 40vw, 18rem);
+  min-height: clamp(14rem, 50vw, 22rem);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border: 1px dashed var(--color-line);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ---------- Tarjeta de pregunta ---------- */
+
+.practica_tarjeta {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-line);
+  background: rgba(0, 0, 0, 0.75);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.practica_tarjeta.is-ok {
+  border-color: var(--color-acierto);
+  box-shadow: 0 0 18px rgba(255, 143, 199, 0.45);
+}
+
+.practica_tarjeta.is-mal {
+  border-color: var(--color-error);
+  box-shadow: 0 0 18px rgba(255, 77, 109, 0.45);
+  animation: sacudir 0.4s ease;
+}
+
+.practica_etiqueta {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.practica_simbolo {
+  color: var(--color-text);
+  font-size: clamp(4rem, 18vw, 7rem);
+  line-height: 1;
+  text-align: center;
+}
+
+.practica_feedback {
+  min-height: 1.6em;
+  color: var(--color-text);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.is-ok .practica_feedback {
+  color: var(--color-acierto);
+}
+
+.is-mal .practica_feedback {
+  color: var(--color-error);
+}
+
+/* ---------- Formulario (modo escribir) ---------- */
+
+.practica_form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.practica_input {
+  flex: 1;
+  min-width: 10rem;
+  padding: 0.6em 0.9em;
+  background: transparent;
+  border: 1px solid var(--color-line);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.practica_input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.practica_input:focus-visible {
+  outline: 2px solid #4c8bf5;
+  outline-offset: 2px;
+}
+
+/* ---------- Botones ---------- */
+
+.practica_btn {
+  padding: 0.6em 1.2em;
+  background: none;
+  border: 1px solid var(--color-line);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.practica_btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.practica_btn:focus-visible {
+  outline: 2px solid #4c8bf5;
+  outline-offset: 2px;
+}
+
+.practica_acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* ---------- Opciones (modo elegir) ---------- */
+
+.practica_opciones {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.practica_opcion {
+  padding: 0.5em;
+  background: none;
+  border: 1px solid var(--color-line);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: clamp(1.5rem, 6vw, 2.2rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.practica_opcion:hover:not(:disabled) {
+  background: #fff;
+  color: #000;
+}
+
+.practica_opcion:focus-visible {
+  outline: 2px solid #4c8bf5;
+  outline-offset: 2px;
+}
+
+.practica_opcion:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.practica_opcion.is-correcta {
+  opacity: 1;
+  border-color: var(--color-acierto);
+  color: var(--color-acierto);
+}
+
+.practica_opcion.is-incorrecta {
+  opacity: 1;
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* ---------- Grupos a practicar ---------- */
+
+.practica_grupos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  border: none;
+
+  legend {
+    float: left;                 /* para que quede en la misma linea que los chips */
+    margin-right: 0.6rem;
+    padding: 0;
+    color: var(--color-text);
+  }
+}
+
+.practica_chip {
+  position: relative;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    cursor: pointer;
+  }
+
+  span {
+    display: inline-block;
+    padding: 0.35em 0.9em;
+    border: 1px solid var(--color-line);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+  }
+
+  input:checked + span {
+    background: #fff;
+    color: #000;
+  }
+
+  input:focus-visible + span {
+    outline: 2px solid #4c8bf5;
+    outline-offset: 2px;
+  }
+}
+
+/* ---------- Celular ---------- */
+
+@media (max-width: 480px) {
+  .practica_tarjeta {
+    padding: 1rem;
+  }
+
+  .practica_marcador {
+    gap: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .practica_tarjeta.is-mal {
+    animation: none;
+  }
+}
