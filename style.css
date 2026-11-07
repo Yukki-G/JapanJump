@@ -33,6 +33,10 @@
 
 /* Zona principal */
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -405,7 +409,8 @@ nav {
 main {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
+  flex-direction: column;
   width: 100%;
   height: auto;
   display: flex;
@@ -415,7 +420,9 @@ main {
 
 h4 {
   color: var(--color-text);
-  font-size: 1.3rem;
+  font-size: clamp(0.7rem, 3vw, 1.5rem);
+  white-space: nowrap;
+  overflow: hidden;
   padding-top: 2rem;
   text-align: center;
 }
@@ -425,6 +432,7 @@ h4 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: min(100%, 56rem);       /* mismo ancho para las 3 tarjetas */
 }
 
 .tarjeta {
@@ -433,22 +441,67 @@ h4 {
   align-items: center;
   flex-direction: row;
   width: 100%;
-  padding: 3rem;
+  padding: 3rem 0;
+
+  gap: 2rem;
 
   img {
-    width: clamp(20rem, 10vw, 55rem);
-    height: clamp(20rem, 10vw, 55rem);
+    width: clamp(18rem, 10vw, 55rem);
+    height: clamp(18rem, 10vw, 55rem);
     border-radius: 10px;
+    flex-shrink: 0;              /* que el texto no la encoja */
+  }
+}
+
+/* Informacion de la tarjeta hijo */
+.tarjeta_texto {
+  flex: 1 1 0;                   /* ocupa todo el espacio que deja la imagen */
+  min-width: 0;
+  min-height: clamp(18rem, 10vw, 55rem);   /* misma altura que la imagen */
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.8rem;
+  text-align: center;
+
+  h6 {
+    color: var(--color-text);
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    text-align: center;
   }
 
   p {
-    width: clamp(40rem, 10vw, 55rem);
-    height: clamp(20rem, 10vw, 55rem);
     color: var(--color-text);
-    font-size: clamp(0.7rem, 4vw, 1.3rem);
-    padding: 1rem;
-    text-align: center;
+    font-size: clamp(0.7rem, 3vw, 1.2rem);
   }
+
+  span {
+    color: #808080;
+    text-align: center;
+    font-size: clamp(0.5rem, 2.5vw, 1rem);
+  }
+
+  button {
+    color: var(--color-text);
+    margin: 1px solid var(--color-line);
+    background: transparent;
+    padding: 0.5rem 1rem;
+  }
+
+  button:hover {
+    background-color: #fff;
+    color: #000;
+    transform: all 0.3s ease;
+  }
+}
+
+.info_tarj_buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
 #tarjeta_reverse {
@@ -462,19 +515,99 @@ h4 {
         
     }
 
-    .tarjeta img {
+/*    .tarjeta img {
         width: min(100%, 300px);
+    } */
+
+    .tarjeta_texto {
+        flex: none;
+        width: 100%;
+        min-height: 0;
     }
 
     .tarjeta p {
         width: 100%;
-        font-size: 1.1rem;
+        font-size: clamp(0.7rem, 3vw, 1.2rem);
     }
 
     h4 {
       font-size: 0.9rem;
     }
 }
+
+
+/* Creditos ============================================================ */
+.credits_contain{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+}
+
+.credits {
+  display: flex;
+  color: var(--color-text);
+  font-size: clamp(0.7rem, 3vw, 1.2rem);
+  text-align: center;
+  padding: 1rem;
+  gap: 1rem;
+  border-left: 1px solid var(--color-line);
+  padding: 1rem;
+}
+
+.img_discord {
+  width: 14rem;
+  height: 10rem;
+  border-radius: 10px;
+}
+
+.img_pfp_credits {
+  width: clamp(4rem, 5vw, 12rem);
+  aspect-ratio: 1;               
+  object-fit: cover;  
+  border-radius: 10px;
+}
+
+.credits_link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  span {
+    font-size: clamp(0.7rem, 3vw, 1.2rem);
+  }
+
+  button {
+    color: var(--color-text);
+    background: none;
+    border: 1px solid var(--color-line);
+    cursor: pointer;
+    padding: 0.5em 1em;            
+    font-size: clamp(0.7rem, 3vw, 1rem);
+    transition: all 0.3s ease;
+
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+    }
+  }
+}
+
+.credits_link button:hover {
+  background-color: #fff;
+}
+.credits_link a:hover {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .credits_contain{
+    flex-direction: column;
+  }
+  }
 
 
 /* ============================================================ */
@@ -870,7 +1003,6 @@ footer {
 }
 
 /* ---------- Personaje ---------- */
-/* Quita el borde punteado cuando ya tengas tu sprite puesto */
 
 .practica_personaje {
   width: clamp(11rem, 40vw, 18rem);
@@ -878,7 +1010,6 @@ footer {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  border: 1px dashed var(--color-line);
 
   img {
     display: block;
@@ -1095,7 +1226,6 @@ footer {
   }
 }
 
-/* ---------- Celular ---------- */
 
 @media (max-width: 480px) {
   .practica_tarjeta {
@@ -1110,5 +1240,224 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .practica_tarjeta.is-mal {
     animation: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================ */
+/* === Practica (hiragana / katakana) ========================= */
+/* ============================================================ */
+
+/* Informacion principal ====================================== */
+
+#apartados_kanjis {
+  color: var(--color-text);
+  font-size: clamp(1.3rem, 4.5vw, 1.5rem);
+  padding: 1rem 0;
+}
+
+.kanjis_apartados {
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    flex-wrap: wrap;
+
+  li {
+    color: var(--color-text);
+    font-size: clamp(0.7rem, 2.5vw, 1.4rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    a {
+      text-decoration: none;
+      color: var(--color-text);
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #ff4d6d;
+    }
+  }
+
+  li::after {
+    content: "୨ৎ";
+    margin-left: 1rem;
+    color: #807f7f;
+    }
+
+  li:hover {
+    transform: scale(1.05);
+  }
+  }
+}
+
+
+/* Tarjetas de kanjis ========================================== */
+.contain_tabla_kanji {
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.tabla_caracteres_kanji {
+  width: min(90%, 900px);
+  margin-inline: auto;
+  padding: 1rem 0 0 0;
+}
+
+.tabla_kanjis_tittle {
+  color: var(--color-text);
+  font-size: clamp(1.2rem, 5vw, 1.8rem);
+  padding: 1rem;
+  scroll-margin-top: 1.5rem;
+  }
+
+/* Contenedor de tarjetas */
+.tabla_kanji_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-line);
+}
+
+@media (min-width: 640px) {
+  .tabla_kanji_grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tabla_kanji_grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+/* Tarjeta individual */
+.cell_kanji {
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  padding: 1rem;
+  color: var(--color-text);
+  transition: all 0.4s ease;
+}
+
+.cell_kanji:hover {
+  transform: scale(1.05);
+}
+
+
+.kanji_info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: start;
+}
+
+
+.kanji_caracter {
+  aspect-ratio: 1 / 1;
+  width: 4.8rem;             
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+
+.lecturas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+
+.lectura {
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
+  padding: 0.3rem 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.lectura-label {
+  font-size: 0.65rem;
+  opacity: 0.55;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.lectura-valor {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.lecturas p {
+  margin: 0.45rem 0 0 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+/* Para las persona con poca sensibilidad */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
