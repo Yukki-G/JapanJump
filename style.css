@@ -425,6 +425,9 @@ h4 {
   overflow: hidden;
   padding-top: 2rem;
   text-align: center;
+  width: 100%;                   /* no dejar que crezca al ancho del texto */
+  display: flex;                 /* si el texto no cabe, se recorta parejo por ambos lados */
+  justify-content: center;
 }
 
 .contain_tarjetas {
