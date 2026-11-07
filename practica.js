@@ -12,8 +12,8 @@
   // Rutas de las imagenes de Rie
   const SPRITES = {
     neutral: "sprits/Rie_neutral.png",
-    feliz:   "sprits/Rie_happy.png",
-    enojada: "sprits/Rie_angry.png",
+    feliz:   "sprits/Rie_happy.jpg",
+    enojada: "sprits/Rie_angry.jpg",
   };
 
   // Cuantos botones aparecen en el modo Romaji → Kana
