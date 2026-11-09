@@ -1,5 +1,4 @@
 // Kanji N5 (98) - datos de la practica. on = onyomi (katakana), kun = kunyomi (hiragana)
-// Nota mental: Se carga ANTES de practica_kanji.js
 const KANJI_DATOS = [
   { id: "numeros", nombre: "Numeros", kanji: [
     { k: "一", sig: "uno", on: ["イチ"], kun: ["ひと"] },

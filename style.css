@@ -3,6 +3,8 @@
   --color-text: #fff;
   --color-line: #fff;
   --ancho-marco: clamp(24px, 6vw, 80px);
+  --liquido-color: #ffffff;
+  --liquido-texto: #ff45a2;
 }
 
 /* Creacion de animaciones */
@@ -29,6 +31,20 @@
   100% { transform: translateY(0); }
 }
 
+@keyframes aparecer {
+  from { opacity: 0; translate: 0 var(--aparece-dist, 24px); }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes escribir {
+  from { --escribe-p: 0%; }
+  to   { --escribe-p: 120%; }
+}
+
+@keyframes brillo-caer {
+  0%   { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--giro)) scale(0.2); }
+}
 
 
 /* Zona principal */
@@ -118,7 +134,6 @@ main {
 }
 
 
-/* Respeta a quien prefiere sin animaciones */
 @media (prefers-reduced-motion: reduce) {
   .hilo, .estrella { animation: none; }
 }
@@ -128,7 +143,7 @@ main {
 .fugaz {
   position: absolute;
   transform-origin: left center;
-  transform: rotate(var(--ang));      /* inclinación de la trayectoria */
+  transform: rotate(var(--ang));     
   pointer-events: none;
 }
 
@@ -150,7 +165,7 @@ main {
 
 /* El carácter ✧ al frente */
 .fugaz-cabeza {
-  margin-left: -0.35em;               /* para que la cola salga del centro de la estrella */
+  margin-left: -0.35em;              
   font-size: var(--tam);
   line-height: 1;
   color: #fff;
@@ -257,6 +272,11 @@ nav {
   font-size: 1.6rem;
   color: var(--color-text);
   cursor: pointer;
+  transition: color 0.2s;
+}
+
+.listnav_title:hover {
+  color: #ff45a2;
 }
 
 /* ---------- Submenú (Tabla / Practica) ---------- */
@@ -292,9 +312,10 @@ nav {
 .submenu a:hover,
 .submenu a:focus-visible {
   text-decoration: underline;
+  color: #ff45a2;
+  font-size: 2rem;
 }
 
-/* Mostrar con mouse (solo dispositivos con hover real) o con teclado */
 @media (hover: hover) {
   .dropdown:hover > .submenu {
     opacity: 1;
@@ -348,7 +369,6 @@ nav {
     display: inline-flex;
   }
 
-  /* El menú pasa a ser un panel que baja debajo de la barra */
   .listnav {
     display: none;
     position: absolute;
@@ -425,8 +445,8 @@ h4 {
   overflow: hidden;
   padding-top: 2rem;
   text-align: center;
-  width: 100%;                   /* no dejar que crezca al ancho del texto */
-  display: flex;                 /* si el texto no cabe, se recorta parejo por ambos lados */
+  width: 100%;                   
+  display: flex;                
   justify-content: center;
 }
 
@@ -435,7 +455,7 @@ h4 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: min(100%, 56rem);       /* mismo ancho para las 3 tarjetas */
+  width: min(100%, 56rem);       
 }
 
 .tarjeta {
@@ -452,15 +472,15 @@ h4 {
     width: clamp(18rem, 10vw, 55rem);
     height: clamp(18rem, 10vw, 55rem);
     border-radius: 10px;
-    flex-shrink: 0;              /* que el texto no la encoja */
+    flex-shrink: 0;            
   }
 }
 
 /* Informacion de la tarjeta hijo */
 .tarjeta_texto {
-  flex: 1 1 0;                   /* ocupa todo el espacio que deja la imagen */
+  flex: 1 1 0;                  
   min-width: 0;
-  min-height: clamp(18rem, 10vw, 55rem);   /* misma altura que la imagen */
+  min-height: clamp(18rem, 10vw, 55rem);   
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -488,7 +508,7 @@ h4 {
 
   button {
     color: var(--color-text);
-    margin: 1px solid var(--color-line);
+    border: 1px solid var(--color-line);
     background: transparent;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -500,12 +520,12 @@ h4 {
   }
 }
 
-.tarjeta_texto button:hover {
+/*.tarjeta_texto button:hover {
   background-color: #fff;
 }
 .tarjeta_texto a:hover {
   color: #000;
-}
+}*/
 
 .info_tarj_buttons {
   display: flex;
@@ -563,8 +583,8 @@ h4 {
 }
 
 .img_discord {
-  width: 14rem;
-  height: 10rem;
+  width: clamp(10rem, 10vw, 15rem);
+  height: clamp(8rem, 8vw, 10rem);
   border-radius: 10px;
 }
 
@@ -602,16 +622,26 @@ h4 {
   }
 }
 
-.credits_link button:hover {
-  background-color: #fff;
+
+#contain_iframe_discord {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
-.credits_link a:hover {
-  color: #000;
+
+#iframe_discord {
+  width: clamp(10rem, 10vw, 17rem);
+  height: clamp(15rem, 15vw, 20rem);
 }
 
 @media (max-width: 768px) {
   .credits_contain{
     flex-direction: column;
+
+  #contain_iframe_discord {
+    flex-direction: column-reverse;
+  }
   }
   }
 
@@ -679,16 +709,16 @@ footer {
     font-size: clamp(0.8rem, 0.6rem + 0.8vw, 1.1rem);
     transition: all 0.3s ease;    
 
-    a {
+/*    a {
       color: var(--color-text);
       text-decoration: none;
-    }
+    } */
   }
 
-  button:hover {
+/*  button:hover {
     background: #fff;
     color: #000;
-  }
+  } */
 }
 
 .footer_links {
@@ -703,7 +733,7 @@ footer {
   }
 
   a:hover {
-    color: var(--color-text);
+    color: #ff4d6d;
     text-decoration: underline;
   }
 }
@@ -1306,7 +1336,7 @@ footer {
 
 
 /* ============================================================ */
-/* === Kanjis tabla ========================= */
+/* === Kanjis tabla =========================================== */
 /* ============================================================ */
 
 /* Informacion principal ====================================== */
@@ -1370,7 +1400,7 @@ footer {
 }
 
 .tabla_kanjis_tittle {
-  color: var(--color-text);
+  color: #ff8fc7;
   font-size: clamp(1.2rem, 5vw, 1.8rem);
   padding: 1rem;
   scroll-margin-top: 1.5rem;
@@ -1477,4 +1507,214 @@ footer {
   html {
     scroll-behavior: auto;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================ */
+/* === Practica de kanji ====================================== */
+/* ============================================================ */
+
+.practica_opciones--texto .practica_opcion {
+  padding: 0.9em 0.6em;
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  line-height: 1.2;
+}
+
+.practica_detalle {
+  min-height: 1.4em;
+  max-width: 100%;
+  color: var(--color-text);
+  opacity: 0.85;
+  font-size: clamp(0.8rem, 3.2vw, 1rem);
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================ */
+/* === Zona de animaciones finales ============================ */
+/* ============================================================ */
+
+/* ===== Boton con efecto "liquido que sube" ===== */
+.liquido {
+  position: relative;
+  overflow: hidden;            
+  z-index: 0;                    
+  background: none;
+  transition: color 0.5s ease;
+}
+
+.liquido::before {
+  content: "";
+  position: absolute;
+  z-index: -1;                
+  left: -25%;
+  width: 150%;                
+  top: 100%;                     
+  height: 250%;
+  background: var(--liquido-color, #fff);
+  border-radius: 50% 50% 0 0 / 22% 22% 0 0;  
+  transition: top 0.6s ease;
+}
+
+.liquido:hover:not(:disabled),
+.liquido:active:not(:disabled) {
+  color: var(--liquido-texto, #000);
+}
+
+.liquido:hover:not(:disabled)::before,
+.liquido:active:not(:disabled)::before {
+  top: -70%;                   
+}
+
+.liquido a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.liquido a:hover {
+  color: var(--liquido-texto);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquido,
+  .liquido::before {
+    transition: none;
+  }
+}
+
+
+
+/* ===== Contenido que aparece al hacer scroll ===== */
+.aparece:not(.visible) {
+  opacity: 0;
+  translate: 0 var(--aparece-dist, 24px);
+}
+
+.aparece.visible {
+  animation: aparecer 0.7s ease-out backwards;
+  animation-delay: var(--retraso, 0s);
+}
+
+.aparece--baja {
+  --aparece-dist: -24px;
+}
+
+@media (scripting: none) {
+  .aparece:not(.visible) { opacity: 1; translate: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aparece:not(.visible) { opacity: 1; translate: none; }
+  .aparece.visible { animation: none; }
+}
+
+/* Los <span> son "en linea" y el navegador ignora translate en ellos: que se comporten como caja */
+span.aparece {
+  display: inline-block;
+}
+
+
+
+
+/* ===== Texto que aparece de izquierda a derecha (agregar despues de style_aparece.css) ===== */
+@property --escribe-p {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 120%;
+}
+
+.aparece--escribe {
+  --aparece-dist: 0px;                       
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(var(--escribe-p) - 20%), transparent var(--escribe-p));
+          mask-image: linear-gradient(90deg, #000 calc(var(--escribe-p) - 20%), transparent var(--escribe-p));
+}
+
+.aparece--escribe.visible {
+  animation-name: escribir;
+  animation-duration: var(--escribe-dur, 1.6s);    
+  animation-timing-function: cubic-bezier(0.3, 0.1, 0.3, 1);
+}
+
+/* Para textos de una linea, que la caja mida lo que mide el texto */
+.aparece--ajustado {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aparece--escribe { -webkit-mask-image: none; mask-image: none; }
+}
+
+
+
+
+
+
+/* ============================================================ */
+/* === Rastro de brillitos del cursor ========================= */
+/* ============================================================ */
+
+.brillo {
+  position: fixed;                 
+  z-index: 10000;                  
+  pointer-events: none;           
+  user-select: none;
+  translate: -50% -50%;           
+  font-size: var(--tam);
+  line-height: 1;
+  color: var(--color-brillo, #fff);
+  font-family: "Segoe UI Symbol", "Noto Sans Symbols 2", "Apple Symbols", sans-serif;
+  text-shadow: 0 0 6px currentColor, 0 0 14px currentColor;
+  animation: brillo-caer var(--dur) ease-out forwards;
 }

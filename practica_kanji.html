@@ -61,38 +61,38 @@
         </div>
     </nav>
 
-    <h2 class="intersecciones">PRACTICA KANJI</h2>
-    <p id="tabla_info">Elige el significado o escribe la lectura de cada kanji. ¡Rie te acompaña!</p>
-    <h4>﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌⋆୨♡୧⋆﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌</h4>
+    <h2 class="intersecciones aparece aparece--escribe aparece--ajustado">PRACTICA KANJI</h2>
+    <p id="tabla_info" class="aparece aparece--escribe aparece--ajustado">Elige el significado o escribe la lectura de cada kanji. ¡Rie te acompaña!</p>
+    <h4 class="aparece aparece--escribe aparece--ajustado">﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌⋆୨♡୧⋆﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌</h4>
 
     <main>
-        <section class="practica" aria-label="Zona de práctica">
+        <section class="practica aparece" aria-label="Zona de práctica">
 
             <!-- Contadores -->
             <div class="practica_marcador">
-                <div class="practica_dato">
+                <div class="practica_dato aparece">
                     <span>RACHA</span>
                     <strong id="p_racha">0</strong>
                 </div>
-                <div class="practica_dato">
+                <div class="practica_dato aparece">
                     <span>BUENAS</span>
                     <strong id="p_buenas">0</strong>
                 </div>
-                <div class="practica_dato">
+                <div class="practica_dato aparece">
                     <span>MALAS</span>
                     <strong id="p_malas">0</strong>
                 </div>
             </div>
 
             <!-- Personaje (cambia entre neutral / happy / angry desde el JS) -->
-            <div class="practica_personaje">
+            <div class="practica_personaje aparece">
                 <img id="p_personaje" src="sprits/Rie_neutral.png" alt="Rie, tu companera de practica">
             </div>
 
             <!-- Tarjeta de pregunta -->
             <div class="practica_tarjeta" id="p_tarjeta">
-                <p class="practica_etiqueta" id="p_etiqueta">¿Qué significa?</p>
-                <p class="practica_simbolo" id="p_simbolo" lang="ja">日</p>
+                <p class="practica_etiqueta aparece aparece--escribe aparece--ajustado" id="p_etiqueta">¿Qué significa?</p>
+                <p class="practica_simbolo aparece aparece--escribe aparece--ajustado" id="p_simbolo" lang="ja">日</p>
 
                 <p class="practica_feedback" id="p_feedback" role="status" aria-live="polite"></p>
                 <p class="practica_detalle" id="p_detalle"></p>
@@ -100,9 +100,9 @@
                 <!-- Modo Kanji → Lectura (escribir) -->
                 <form class="practica_form" id="p_form" autocomplete="off">
                     <input class="practica_input" id="p_input" type="text"
-                           placeholder="Escribe la lectura (romaji o kana)..."
-                           aria-label="Escribe la lectura del kanji"
-                           autocapitalize="none" autocorrect="off" spellcheck="false">
+                        placeholder="Escribe la lectura (romaji o kana)..."
+                        aria-label="Escribe la lectura del kanji"
+                        autocapitalize="none" autocorrect="off" spellcheck="false">
                     <button class="practica_btn" id="p_comprobar" type="submit">Comprobar</button>
                 </form>
 
@@ -110,7 +110,7 @@
                 <div class="practica_opciones practica_opciones--texto" id="p_opciones" hidden></div>
 
                 <!-- Botones de accion -->
-                <div class="practica_acciones">
+                <div class="practica_acciones aparece">
                     <button class="practica_btn" id="p_nolose" type="button">No lo sé</button>
                     <button class="practica_btn" id="p_siguiente" type="button" hidden>Siguiente ›</button>
                     <button class="practica_btn" id="p_modo" type="button">Kanji → Significado</button>
@@ -118,33 +118,33 @@
             </div>
 
             <!-- Que grupos practicar -->
-            <fieldset class="practica_grupos">
+            <fieldset class="practica_grupos aparece">
                 <legend>Practicar:</legend>
                 <label class="practica_chip">
                     <input type="checkbox" value="numeros" checked>
                     <span>Numeros</span>
                 </label>
-                <label class="practica_chip">
+                <label class="practica_chip aparece">
                     <input type="checkbox" value="naturaleza">
                     <span>Naturaleza</span>
                 </label>
-                <label class="practica_chip">
+                <label class="practica_chip aparece">
                     <input type="checkbox" value="personas">
                     <span>Personas</span>
                 </label>
-                <label class="practica_chip">
+                <label class="practica_chip aparece">
                     <input type="checkbox" value="direcciones">
                     <span>Direcciones</span>
                 </label>
-                <label class="practica_chip">
+                <label class="practica_chip aparece">
                     <input type="checkbox" value="verbos">
                     <span>Verbos</span>
                 </label>
-                <label class="practica_chip">
+                <label class="practica_chip aparece">
                     <input type="checkbox" value="adjetivos">
                     <span>Adjetivos</span>
                 </label>
-                <label class="practica_chip">
+                <label class="practica_chip aparece">
                     <input type="checkbox" value="tiempo">
                     <span>Tiempo</span>
                 </label>
@@ -152,14 +152,14 @@
         </section>
     </main>
 
-    <h4>﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌⋆୨♡୧⋆﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌</h4>
+    <h4 class="aparece aparece--escribe aparece--ajustado">﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌⋆୨♡୧⋆﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌</h4>
 
     <footer>
         <span class="copyright">© 2023 Cherry Nippon Clan. Todos los derechos reservados.</span>
         <div class="contain_footer">
             <div class="footer_img">
                 <img src="images/mi_pfp.jpg" alt="Mi pfp">
-                <button>Mis redes</button>
+                <button class="liquido"><a href="https://yukki-g.github.io/MiBio/">Mis redes</a></button>
             </div>
             <div class="footer_links">
                 <a href=""> Mi github</a>

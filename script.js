@@ -188,3 +188,167 @@ function programarFugaz() {
 }
 
 programarFugaz();
+
+
+
+// ============================================================
+// Animaciones al hacer scroll  (pegar al final de script.js)
+// ============================================================
+// 1) La lista AUTO de abajo pone las clases solita: no hace falta tocar el HTML.
+// 2) Cada elemento se anima cada vez que vuelve a entrar en pantalla.
+//    Si alguno solo debe animarse UNA vez, agregale la clase "aparece--una-vez".
+(() => {
+
+  // ---------- QUE ANIMAR ----------
+  // sel:       selector CSS de los elementos
+  // clases:    clases de animacion que se les agregan
+  // escalonar: (opcional) segundos de retraso entre columnas -> efecto de "ola" en cuadriculas
+  const AUTO = [
+    // Titulos y separadores: se escriben de izquierda a derecha
+    { sel: "h4",                            clases: "aparece aparece--escribe aparece--ajustado" },
+    { sel: ".bienv",                        clases: "aparece aparece--escribe" },
+    { sel: ".intersecciones",               clases: "aparece aparece--escribe aparece--ajustado" },
+
+    // Tarjetas y cajas grandes: suben
+    { sel: ".tarjeta",                      clases: "aparece" },
+    { sel: ".tabla_kanjis_tittle",          clases: "aparece" },
+    { sel: ".tabla_kanji_grid > .cell_kanji", clases: "aparece", escalonar: 0.08 },
+    { sel: ".contain_info_tarj > .info_tarj", clases: "aparece", escalonar: 0.1 },
+
+    // Celdas pequenas de hiragana / katakana: "pop" en ola
+    { sel: ".tabla_grid > .cell",           clases: "aparece aparece--pop", escalonar: 0.06 },
+  ];
+
+  // ---------- Poner las clases ----------
+  AUTO.forEach(({ sel, clases }) => {
+    document.querySelectorAll(sel).forEach((el) => el.classList.add(...clases.split(/\s+/)));
+  });
+
+  // ---------- Retraso por columna (ola) ----------
+  // Numera cada elemento dentro de su fila y le da un retraso segun su columna.
+  // Se calcula leyendo la posicion real, asi funciona con cualquier cantidad de
+  // columnas y se vuelve a calcular si cambia el ancho de la pantalla.
+  function escalonar() {
+    AUTO.filter((a) => a.escalonar).forEach(({ sel, escalonar: paso }) => {
+      let filaTop = null;
+      let columna = 0;
+      document.querySelectorAll(sel).forEach((el) => {
+        const top = el.offsetTop;
+        if (filaTop === null || Math.abs(top - filaTop) > 4) { filaTop = top; columna = 0; }
+        el.style.setProperty("--retraso", (columna * paso).toFixed(2) + "s");
+        columna++;
+      });
+    });
+  }
+
+  escalonar();
+  let temporizador;
+  window.addEventListener("resize", () => {
+    clearTimeout(temporizador);
+    temporizador = setTimeout(escalonar, 200);
+  });
+
+  // ---------- Aparecer / reiniciar al entrar y salir de pantalla ----------
+  const items = document.querySelectorAll(".aparece");
+  if (!items.length) return;
+
+  // Navegadores muy viejos: mostrar todo sin animar
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((el) => el.classList.add("visible"));
+    return;
+  }
+
+  const MINIMO_VISIBLE = 0.15;   // cuanto del elemento debe verse para que aparezca (15%)
+
+  const observador = new IntersectionObserver(
+    (entradas) => {
+      entradas.forEach((entrada) => {
+        const el = entrada.target;
+        const unaVez = el.classList.contains("aparece--una-vez");
+
+        if (entrada.isIntersecting && entrada.intersectionRatio >= MINIMO_VISIBLE) {
+          el.classList.add("visible");
+          if (unaVez) observador.unobserve(el);
+        } else if (!entrada.isIntersecting && !unaVez) {
+          // Salio por completo de la pantalla: se reinicia para animar de nuevo
+          el.classList.remove("visible");
+        }
+      });
+    },
+    { threshold: [0, MINIMO_VISIBLE] }
+  );
+
+  items.forEach((el) => observador.observe(el));
+})();
+
+
+
+
+// ============================================================
+// Rastro de brillitos que deja el cursor 
+// ============================================================
+(() => {
+
+  // ---------- Ajustes  ----------
+  const SIMBOLOS   = ["✧", "✦", "⋆"];      
+  const COLORES    = ["#ffffff", "#ffffff", "#ff8fc7"]; 
+  const DISTANCIA  = 16;      
+  const MAXIMO     = 30;      
+  const TAM        = [10, 20];     // tamano min y max (px)
+  const DURACION   = [0.7, 1.3];   // segundos que tarda en apagarse
+  const CAIDA      = [14, 38];     // px que cae mientras se apaga
+
+  // ---------- Solo con mouse, y respetando "reducir movimiento" ----------
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const entre = (min, max) => Math.random() * (max - min) + min;
+  const alAzar = (lista) => lista[Math.floor(Math.random() * lista.length)];
+
+  let ultimoX = null;
+  let ultimoY = null;
+  let vivos = 0;
+
+  function soltarBrillo(x, y) {
+    if (vivos >= MAXIMO) return;
+
+    const b = document.createElement("span");
+    b.className = "brillo";
+    b.textContent = alAzar(SIMBOLOS);
+    b.setAttribute("aria-hidden", "true");
+
+    // Variacion
+    b.style.left = x + entre(-4, 4) + "px";
+    b.style.top  = y + entre(-4, 4) + "px";
+    b.style.setProperty("--tam",  entre(...TAM).toFixed(1) + "px");
+    b.style.setProperty("--dur",  entre(...DURACION).toFixed(2) + "s");
+    b.style.setProperty("--dx",   entre(-14, 14).toFixed(1) + "px");
+    b.style.setProperty("--dy",   entre(...CAIDA).toFixed(1) + "px");
+    b.style.setProperty("--giro", entre(-90, 90).toFixed(0) + "deg");
+    b.style.setProperty("--color-brillo", alAzar(COLORES));
+
+    vivos++;
+    b.addEventListener("animationend", () => {
+      b.remove();
+      vivos--;
+    });
+    document.body.appendChild(b);
+  }
+
+  document.addEventListener(
+    "pointermove",
+    (e) => {
+      if (e.pointerType !== "mouse") return;
+
+      if (ultimoX !== null) {
+        const dx = e.clientX - ultimoX;
+        const dy = e.clientY - ultimoY;
+        if (dx * dx + dy * dy < DISTANCIA * DISTANCIA) return;   
+      }
+      ultimoX = e.clientX;
+      ultimoY = e.clientY;
+      soltarBrillo(e.clientX, e.clientY);
+    },
+    { passive: true }
+  );
+})();

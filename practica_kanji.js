@@ -18,7 +18,6 @@
   const OPCIONES_POR_PREGUNTA = 4;
 
   // ---------- Kana -> romaji (para aceptar lecturas escritas en romaji) ----------
-  // Cada silaba puede tener varias formas validas (shi / si, tsu / tu...)
 
   const ROMAJI = {
     あ: ["a"], い: ["i"], う: ["u"], え: ["e"], お: ["o"],
@@ -78,7 +77,6 @@
     const set = new Set(combos);
 
     // En onyomi se acepta escribir las vocales largas de varias formas:
-    // shou / shoo / sho,  kyuu / kyu,  sei / see / se
     if (esOnyomi) {
       combos.forEach((c) => {
         set.add(c.replace(/ou/g, "oo"));
