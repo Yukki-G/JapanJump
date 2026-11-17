@@ -352,3 +352,15 @@ programarFugaz();
     { passive: true }
   );
 })();
+
+
+// ============================================================
+// App sin internet (PWA): registra el service worker (sw.js)
+// ============================================================
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch((error) => {
+      console.warn("No se pudo activar el modo sin internet:", error);
+    });
+  });
+}

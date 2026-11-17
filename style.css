@@ -1,3 +1,19 @@
+/* Fuente Saira guardada en la carpeta fonts/ (asi funciona sin internet) */
+@font-face {
+  font-family: "Saira";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/saira.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Saira";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/saira-italic.woff2") format("woff2");
+}
+
 /* Declaracion de variables */
 :root {
   --color-text: #fff;
